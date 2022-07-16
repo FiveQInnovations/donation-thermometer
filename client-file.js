@@ -1,6 +1,8 @@
 function updateGoalAmount(newGoalAmount) {
   var oldGoalAmount = document.getElementById('goal');
   console.log("oldGoalAmount from Kirby Panel: " + oldGoalAmount);
+  // TODO: this function needs to display the existing amount
+  // And then set it to the new amount
 }
 
 window.addEventListener("message", (event) => {
