@@ -93,41 +93,10 @@
         <span class="goal-label">Sponsors</span>
     </div>
 </div>
-<script>
-    function updateThermometerData(data) {
-      const initialGoalAmount = data.goalAmount;
-      const currentAmountRaised = data.currentAmount;
-
-      document.getElementById('goal').innerText = '$' + initialGoalAmount;
-      document.getElementById('current-amount').innerText = '$' + parseInt(currentAmountRaised);
-
-      const percentRaisedDecimal = currentAmountRaised / initialGoalAmount;
-      const percentRaisedInt = parseInt(percentRaisedDecimal * 100);
-      document.getElementById('goal-percent-complete').innerText = percentRaisedInt + '%';
-
-      document.getElementById('number-sponsors').innerText = data.numSponsors;
-    }
-
-    window.addEventListener("message", (event) => {
-      if (event.origin !== "https://journity-scripts.s3.amazonaws.com") {
-        return;
-      }
-
-      var goalAmount = event.data.goal;
-      var currentAmount = event.data.currentAmount;
-      var numSponsors = event.data.numSponsors;
-
-      const thermometerData = {
-        goalAmount,
-        currentAmount,
-        numSponsors
-      }
-      updateThermometerData(thermometerData);
-    }, false);
-
-</script>
-<script type="text/javascript"
-    src="https://journity-scripts.s3.amazonaws.com/anthony-test/donation-thermometer.js">
+<script
+        type="text/javascript"
+        src="https://journity-scripts.s3.amazonaws.com/anthony-test/donation-thermometer.js"
+>
 </script>
 
 </html>
