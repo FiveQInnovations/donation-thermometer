@@ -1,7 +1,7 @@
 // Upload this to AWS S3
 console.log('in donation-thermometer.js');
 
-function getGoalAmount() {
+function getDonationData() {
     // Put code here to get the goal amount
     // Option 1: API call - do this one
     // Option 2: scrape parent document
@@ -11,12 +11,14 @@ function getGoalAmount() {
     // Option 4: Client manually updates this file
         // Possible, but not worthwhile
 
-    console.log('running getGoalAmount');
-    return fetch('https://bqooixhppfybqw64lxkni7sjxi0jiyll.lambda-url.us-east-1.on.aws/')
+    console.log('running getDonationData');
+    let donationApiEndpoint = 'https://bqooixhppfybqw64lxkni7sjxi0jiyll.lambda-url.us-east-1.on.aws/';
+    return fetch(donationApiEndpoint)
       .then(r => r.json())
       .then(jsonData => {
-        console.log('in .json()');
-        return jsonData.initialGoalAmount;
+        return {
+            initialGoalAmount: jsonData.initialGoalAmount
+        };
       });
 }
 
@@ -26,9 +28,9 @@ function getCurrentAmount() {
     return 250000;
 }
 
-getGoalAmount().then(goalAmount => {
+getDonationData().then(donationData => {
     const data = {
-        goal: goalAmount,
+        goal: donationData.initialGoalAmount,
         currentAmount: getCurrentAmount()
     };
     console.log('posting message');
