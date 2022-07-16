@@ -23,12 +23,6 @@ function getDonationData() {
       });
 }
 
-function getCurrentAmount() {
-    // Put code here to get the current amount
-    console.log('running getCurrentAmount');
-    return 250000;
-}
-
 getDonationData().then(donationData => {
     const data = {
         goal: donationData.initialGoalAmount,
@@ -37,5 +31,3 @@ getDonationData().then(donationData => {
     console.log('posting message');
     window.postMessage(data, '*')
 })
-
-// window.parent.postMessage(data, '*')
