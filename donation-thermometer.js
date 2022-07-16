@@ -9,20 +9,34 @@ console.log('in donation-thermometer.js');
 // Option 4: Client manually updates this file
     // Possible, but not worthwhile
 
+function setInitialGoalAmount (initialGoalAmount) {
+    document.getElementById("goal").innerText = "$" + initialGoalAmount;
+}
+
+function setCurrentAmountRaised (currentAmountRaised) {
+    document.getElementById("current-amount").innerText = "$" + parseInt(currentAmountRaised);
+}
+
+function setPercentRaised (currentAmountRaised, initialGoalAmount) {
+    const percentRaisedDecimal = currentAmountRaised / initialGoalAmount;
+    const percentRaisedInt = parseInt(percentRaisedDecimal * 100);
+    document.getElementById("goal-percent-complete").innerText = percentRaisedInt + "%";
+}
+
+function setNumSponsors (numSponsors) {
+    document.getElementById("number-sponsors").innerText = numSponsors;
+}
+
 function updateThermometerData(data) {
     console.log('updating thermometer data');
     const initialGoalAmount = data.initialGoalAmount;
     const currentAmountRaised = data.amountRaised;
     const numSponsors = data.numSponsors;
 
-    document.getElementById('goal').innerText = '$' + initialGoalAmount;
-    document.getElementById('current-amount').innerText = '$' + parseInt(currentAmountRaised);
-
-    const percentRaisedDecimal = currentAmountRaised / initialGoalAmount;
-    const percentRaisedInt = parseInt(percentRaisedDecimal * 100);
-    document.getElementById('goal-percent-complete').innerText = percentRaisedInt + '%';
-
-    document.getElementById('number-sponsors').innerText = numSponsors;
+    setInitialGoalAmount(initialGoalAmount);
+    setCurrentAmountRaised(currentAmountRaised);
+    setPercentRaised(currentAmountRaised, initialGoalAmount);
+    setNumSponsors(numSponsors);
 }
 
 function getDonationData() {
