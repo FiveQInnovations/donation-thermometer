@@ -28,7 +28,7 @@ getDonationData().then(donationData => {
     const data = {
         goal: donationData.initialGoalAmount,
         currentAmount: donationData.amountRaised,
-        numSponsors: 42
+        numSponsors: donationData.numSponsors
     };
     console.log('posting message');
     window.postMessage(data, '*')
