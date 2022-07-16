@@ -89,7 +89,7 @@
         <span class="goal-label">Days</span>
     </div>
     <div class="goal-stat">
-        <span class="goal-number">38</span>
+        <span id="number-sponsors" class="goal-number">38</span>
         <span class="goal-label">Sponsors</span>
     </div>
 </div>
@@ -98,18 +98,14 @@
       const initialGoalAmount = data.goalAmount;
       const currentAmountRaised = data.currentAmount;
 
-        let goalElement = document.getElementById('goal');
-        let oldGoalAmount = goalElement.innerText;
-        console.log("oldGoalAmount from iframe: " + oldGoalAmount);
-
-        console.log('about to set goal to: $' + initialGoalAmount);
-        goalElement.innerText = '$' + initialGoalAmount;
-
+      document.getElementById('goal').innerText = '$' + initialGoalAmount;
       document.getElementById('current-amount').innerText = '$' + parseInt(currentAmountRaised);
 
       const percentRaisedDecimal = currentAmountRaised / initialGoalAmount;
       const percentRaisedInt = parseInt(percentRaisedDecimal * 100);
-      document.getElementById('goal-percent-complete').innerText = percentRaisedInt + '%'
+      document.getElementById('goal-percent-complete').innerText = percentRaisedInt + '%';
+
+      document.getElementById('number-sponsors').innerText = data.numSponsors;
     }
 
     window.addEventListener("message", (event) => {
@@ -117,15 +113,14 @@
         return;
       }
 
-      console.log('received message in iframe!');
-      console.log(event);
       var goalAmount = event.data.goal;
       var currentAmount = event.data.currentAmount;
-      console.log("Goal amount: $" + goalAmount);
-      console.log("Current amount: $" + currentAmount);
+      var numSponsors = event.data.numSponsors;
+
       const thermometerData = {
         goalAmount,
-        currentAmount
+        currentAmount,
+        numSponsors
       }
       updateThermometerData(thermometerData);
     }, false);
