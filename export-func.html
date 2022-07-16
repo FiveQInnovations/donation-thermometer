@@ -1,6 +1,8 @@
+<!-- Upload this to the site receiving the donation thermometer -->
 <script>
     function updateGoalAmount(newGoalAmount) {
-        console.log(document.getElementById('goal'));
+        var oldGoalAmount = document.getElementById('goal');
+        console.log("oldGoalAmount from Kirby Panel: " + oldGoalAmount);
     }
 
     window.addEventListener("message", (event) => {
