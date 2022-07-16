@@ -105,7 +105,7 @@
         console.log('about to set goal to: $' + initialGoalAmount);
         goalElement.innerText = '$' + initialGoalAmount;
 
-      document.getElementById('current-amount').innerText = '$' + currentAmountRaised;
+      document.getElementById('current-amount').innerText = '$' + parseInt(currentAmountRaised);
 
       const percentRaisedDecimal = currentAmountRaised / initialGoalAmount;
       const percentRaisedInt = parseInt(percentRaisedDecimal * 100);
