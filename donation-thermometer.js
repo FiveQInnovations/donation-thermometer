@@ -12,16 +12,9 @@ function getGoalAmount() {
         // Possible, but not worthwhile
 
     console.log('running getGoalAmount');
-    // const requestInfo: RequestInfo = {
-    //   url: 'https://www.example.com',
-    //   headers:
-    // }
     return fetch('https://bqooixhppfybqw64lxkni7sjxi0jiyll.lambda-url.us-east-1.on.aws/')
-      .then(r => {
-          console.log('received API response');
-          console.log(r);
-          return r.json();
-      }).then(jsonData => {
+      .then(r => r.json())
+      .then(jsonData => {
         console.log('in .json()');
         return jsonData.initialGoalAmount;
       });
