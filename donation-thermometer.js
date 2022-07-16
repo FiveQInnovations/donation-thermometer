@@ -20,7 +20,10 @@ function getGoalAmount() {
       .then(r => {
           console.log('received API response');
           console.log(r);
-          return 10**3;
+          return r.json();
+      }).then(jsonData => {
+        console.log('in .json()');
+        return jsonData.initialGoalAmount;
       });
 }
 
