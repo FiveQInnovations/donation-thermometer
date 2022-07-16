@@ -105,12 +105,10 @@
         console.log('about to set goal to: $' + initialGoalAmount);
         goalElement.innerText = '$' + initialGoalAmount;
 
-        //        <span id="goal-percent-complete" class="goal-number">16%</span>
-      //        <span id="current-amount" class="goal-number">$1,640</span>
-
-
-      // document.getElementById('goal-percent-complete')
       document.getElementById('current-amount').innerText = '$' + currentAmountRaised;
+
+      const percentRaised = currentAmountRaised / initialGoalAmount;
+      document.getElementById('goal-percent-complete').innerText = percentRaised + '%'
     }
 
     window.addEventListener("message", (event) => {
