@@ -21,6 +21,7 @@ function setPercentRaised (currentAmountRaised, initialGoalAmount) {
     const percentRaisedDecimal = currentAmountRaised / initialGoalAmount;
     const percentRaisedInt = parseInt(percentRaisedDecimal * 100);
     document.getElementById("goal-percent-complete").innerText = percentRaisedInt + "%";
+    document.getElementById("progress").style.width = percentRaisedInt + '%';
 }
 
 function setNumSponsors (numSponsors) {

@@ -1,12 +1,13 @@
 <!-- Upload this to AWS S3 -->
 <html>
-<link href="https://journity-scripts.s3.amazonaws.com/anthony-test/donation-thermometer.css" rel="stylesheet">
+<!--<link href="https://journity-scripts.s3.amazonaws.com/anthony-test/donation-thermometer.css" rel="stylesheet">-->
+<link href="donation-thermometer.css" rel="stylesheet"/>
 <div id="countdown-wrap">
     <div id="goal"></div>
     <div id="glass">
         <div id="progress"></div>
     </div>
-    <div>
+    <div class="stat-container">
         <div class="goal-stat">
             <span id="goal-percent-complete" class="goal-number"></span>
             <span class="goal-label">Funded</span>
@@ -27,7 +28,7 @@
 </div>
 <script
         type="text/javascript"
-        src="https://journity-scripts.s3.amazonaws.com/anthony-test/donation-thermometer.js"
+        src="donation-thermometer.js"
 >
 </script>
 
