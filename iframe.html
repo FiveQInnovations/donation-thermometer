@@ -98,6 +98,8 @@
         let goalElement = document.getElementById('goal');
         let oldGoalAmount = goalElement.innerText;
         console.log("oldGoalAmount from iframe: " + oldGoalAmount);
+
+        console.log('about to set goal to: $' + newGoalAmount);
     }
 
     window.addEventListener("message", (event) => {
