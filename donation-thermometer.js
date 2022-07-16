@@ -3,6 +3,11 @@ console.log('in donation-thermometer.js');
 
 function getGoalAmount() {
     // Put code here to get the goal amount
+    // Option 1: API call
+    // Option 2: scrape parent document
+    // Option 3: interact with function somehow
+    // Option 4: Client manually updates this file
+
     console.log('running getGoalAmount');
     return 10**6;
 }
