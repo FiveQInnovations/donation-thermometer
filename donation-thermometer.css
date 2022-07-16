@@ -1,17 +1,12 @@
 #countdown-wrap {
     width: 100%;
     font-family: arial;
+    display: flex;
+    align-items: center;
 }
 
 #goal {
-    font-size: 26px;
-    text-align: right;
-    color: #FFF;
-
-/*@media only screen and (max-width: 640px) {*/
-/*    text-align: center;*/
-/*}*/
-
+    align-self: flex-end;
 }
 
 #glass {
