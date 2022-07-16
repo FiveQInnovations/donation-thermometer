@@ -4,7 +4,7 @@ console.log('in donation-thermometer.js');
 function getGoalAmount() {
     // Put code here to get the goal amount
     console.log('running getGoalAmount');
-    return 100;
+    return 10**6;
 }
 
 function getCurrentAmount() {
