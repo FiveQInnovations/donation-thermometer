@@ -17,7 +17,8 @@ function getDonationData() {
       .then(r => r.json())
       .then(jsonData => {
         return {
-            initialGoalAmount: jsonData.initialGoalAmount
+            initialGoalAmount: jsonData.initialGoalAmount,
+            amountRaised: '5000'
         };
       });
 }
@@ -31,7 +32,7 @@ function getCurrentAmount() {
 getDonationData().then(donationData => {
     const data = {
         goal: donationData.initialGoalAmount,
-        currentAmount: getCurrentAmount()
+        currentAmount: donationData.amountRaised
     };
     console.log('posting message');
     window.postMessage(data, '*')
