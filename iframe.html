@@ -94,13 +94,22 @@
     </div>
 </div>
 <script>
-    function updateGoalAmount(newGoalAmount) {
+    function updateThermometerData(data) {
+      const initialGoalAmount = data.goalAmount;
+      const currentAmountRaised = data.currentAmount;
+
         let goalElement = document.getElementById('goal');
         let oldGoalAmount = goalElement.innerText;
         console.log("oldGoalAmount from iframe: " + oldGoalAmount);
 
-        console.log('about to set goal to: $' + newGoalAmount);
-        goalElement.innerText = '$' + newGoalAmount;
+        console.log('about to set goal to: $' + initialGoalAmount);
+        goalElement.innerText = '$' + initialGoalAmount;
+
+        //        <span id="goal-percent-complete" class="goal-number">16%</span>
+      //        <span id="current-amount" class="goal-number">$1,640</span>
+
+
+      // document.getElementById('goal-percent-complete')
     }
 
     window.addEventListener("message", (event) => {
@@ -113,10 +122,13 @@
       var goalAmount = event.data.goal;
       var currentAmount = event.data.currentAmount;
       console.log("Goal amount: $" + goalAmount);
-      updateGoalAmount(goalAmount);
       console.log("Current amount: $" + currentAmount);
+      const thermometerData = {
+        goalAmount,
+        currentAmount
+      }
+      updateThermometerData(thermometerData);
     }, false);
-    // test
 
 </script>
 <script type="text/javascript"
