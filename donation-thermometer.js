@@ -10,7 +10,7 @@ function getGoalAmount() {
 function getCurrentAmount() {
     // Put code here to get the current amount
     console.log('running getCurrentAmount');
-    return 5;
+    return 90.8888888;
 }
 
 var data = { 
