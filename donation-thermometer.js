@@ -12,7 +12,12 @@ function getGoalAmount() {
         // Possible, but not worthwhile
 
     console.log('running getGoalAmount');
-    return 10**6;
+    return fetch('https://www.example.com')
+      .then(r => {
+          console.log('received API response');
+          console.log(r);
+          return 10**3;
+      });
 }
 
 function getCurrentAmount() {
@@ -21,10 +26,13 @@ function getCurrentAmount() {
     return 250000;
 }
 
-var data = { 
-    goal: getGoalAmount(),
-    currentAmount: getCurrentAmount()
-};
-console.log('posting message');
-window.parent.postMessage(data, '*')
-window.postMessage(data, '*')
+getGoalAmount().then(goalAmount => {
+    const data = {
+        goal: goalAmount,
+        currentAmount: getCurrentAmount()
+    };
+    console.log('posting message');
+    window.postMessage(data, '*')
+})
+
+// window.parent.postMessage(data, '*')
