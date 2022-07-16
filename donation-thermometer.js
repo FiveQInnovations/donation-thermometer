@@ -1,5 +1,4 @@
 // Upload this to AWS S3
-console.log('in donation-thermometer.js');
 
 // Option 1: API call - do this one
 // Option 2: scrape parent document
@@ -29,7 +28,6 @@ function setNumSponsors (numSponsors) {
 }
 
 function updateThermometerData(data) {
-    console.log('updating thermometer data');
     const initialGoalAmount = data.initialGoalAmount;
     const currentAmountRaised = data.amountRaised;
     const numSponsors = data.numSponsors;
@@ -41,7 +39,6 @@ function updateThermometerData(data) {
 }
 
 function getDonationData() {
-    console.log('getting thermometer data from server');
     let donationApiEndpoint = 'https://bqooixhppfybqw64lxkni7sjxi0jiyll.lambda-url.us-east-1.on.aws/';
     return fetch(donationApiEndpoint)
       .then(r => r.json())
