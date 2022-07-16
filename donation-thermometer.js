@@ -18,7 +18,7 @@ function getDonationData() {
       .then(jsonData => {
         return {
             initialGoalAmount: jsonData.initialGoalAmount,
-            amountRaised: '5000'
+            amountRaised: jsonData.amountRaised
         };
       });
 }
