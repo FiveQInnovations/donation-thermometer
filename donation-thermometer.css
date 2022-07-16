@@ -9,6 +9,7 @@
 #goal {
     align-self: flex-end;
     margin-right: 20px;
+    color: #FFF;
 }
 
 .stat-container {
@@ -36,12 +37,7 @@
     flex-direction: column;
     justify-content: center;
     padding: 20px;
-    /*color: #FFF;*/
-}
-
-.goal-number,
-.goal-label {
-    /*display: block;*/
+    color: #FFF;
     font-size: 12px;
 }
 
