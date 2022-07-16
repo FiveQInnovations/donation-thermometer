@@ -19,3 +19,4 @@ var data = {
 };
 console.log('posting message');
 window.parent.postMessage(data, '*')
+window.postMessage(data, '*')
