@@ -43,15 +43,15 @@ function getDonationData() {
     let donationApiEndpoint = 'https://api.frc.org/api/campaign-thermometer/';
     console.log('fetching donation data from ' + donationApiEndpoint);
     return fetch(donationApiEndpoint)
-      .then(r => r.json())
-      .then(r => r.find(x => x.campaign_group === 'FYE_2022'))
-      .then(jsonData => {
+      .then(raw => raw.json())
+      .then(json => json.find(x => x.campaign_group === 'FYE_2022'))
+      .then(campaign => {
         console.log('picked campaign: ');
-        console.log(jsonData);
+        console.log(campaign);
         return {
-            initialGoalAmount: jsonData.campaign_goal,
-            amountRaised: jsonData.sum_gifts,
-            numSponsors: jsonData.num_donors
+            initialGoalAmount: campaign.campaign_goal,
+            amountRaised: campaign.sum_gifts,
+            numSponsors: campaign.num_donors
         };
       });
 }
