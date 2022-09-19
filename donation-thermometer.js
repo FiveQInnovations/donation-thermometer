@@ -41,17 +41,17 @@ function updateThermometerData(data) {
 function getDonationData() {
     // let donationApiEndpoint = 'https://bqooixhppfybqw64lxkni7sjxi0jiyll.lambda-url.us-east-1.on.aws/';
     let donationApiEndpoint = 'https://api.frc.org/api/campaign-thermometer/';
-    console.log('fetching donation data from ' + donationApiEndpoint);
+    const campaignToUse = 'FYE_2022';
+
     return fetch(donationApiEndpoint)
       .then(raw => raw.json())
-      .then(json => json.find(x => x.campaign_group === 'FYE_2022'))
+      .then(json => json.find(x => x.campaign_group === campaignToUse))
       .then(campaign => {
-        console.log('picked campaign: ');
-        console.log(campaign);
         return {
             initialGoalAmount: campaign.campaign_goal,
             amountRaised: campaign.sum_gifts,
-            numSponsors: campaign.num_donors
+            numSponsors: campaign.num_donors,
+
         };
       });
 }
