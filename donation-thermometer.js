@@ -28,6 +28,9 @@ function setNumSponsors (numSponsors) {
 }
 
 function updateThermometerData(data) {
+    console.log('updating thermometer with:');
+    console.log(data);
+    
     const initialGoalAmount = data.initialGoalAmount;
     const currentAmountRaised = data.amountRaised;
     const numSponsors = data.numSponsors;
@@ -51,7 +54,10 @@ function getDonationData() {
             initialGoalAmount: campaign.campaign_goal,
             amountRaised: campaign.sum_gifts,
             numSponsors: campaign.num_donors,
-
+            campaignDescription: campaign.campaign_desc,
+            numGifts: campaign.num_gifts,
+            startDate: campaign.start_date,
+            endDate: campaign.end_date            
         };
       });
 }
