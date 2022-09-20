@@ -67,6 +67,11 @@ function getDonationData() {
             startDate: campaign.start_date,
             endDate: campaign.end_date            
         };
+      })
+      .catch(e => {
+          console.log('There is no campaign at this time');
+          console.log(e);
+          document.getElementById('donation-thermometer-error').removeAttribute('hidden');
       });
 }
 
