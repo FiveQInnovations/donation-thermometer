@@ -8,8 +8,13 @@
 // Option 4: Client manually updates this file
     // Possible, but not worthwhile
 
+function formatNumber (x) {
+    return Number(x).toLocaleString('en-US', { minimumFractionDigits: 0 } );
+}
+
 function setInitialGoalAmount (initialGoalAmount) {
-    document.getElementById("goal").innerText = "$" + initialGoalAmount;
+    let formattedGoalAmount = formatNumber(initialGoalAmount);
+    document.getElementById("goal").innerText = "$" + formattedGoalAmount;
 }
 
 function setCurrentAmountRaised (currentAmountRaised) {
