@@ -35,8 +35,12 @@ function setNumSponsors (numSponsors) {
     document.getElementById("number-sponsors").innerText = formattedNumSponsors;
 }
 
-function setDaysRemaining(endDate) {
-    document.getElementById("days-remaining").innerText = '13';
+function setDaysRemaining(numDays) {
+    document.getElementById("days-remaining").innerText = numDays;
+}
+
+function calculateDaysRemaining (endDate) {
+    return '12';
 }
 
 function updateThermometerData(data) {
@@ -51,7 +55,8 @@ function updateThermometerData(data) {
     setCurrentAmountRaised(currentAmountRaised);
     setPercentRaised(currentAmountRaised, initialGoalAmount);
     setNumSponsors(numSponsors);
-    setDaysRemaining(data.endDate);
+    const numDaysRemaining = calculateDaysRemaining(data.endDate);
+    setDaysRemaining(numDaysRemaining);
 }
 
 function getDonationData() {
