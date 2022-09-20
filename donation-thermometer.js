@@ -18,7 +18,9 @@ function setInitialGoalAmount (initialGoalAmount) {
 }
 
 function setCurrentAmountRaised (currentAmountRaised) {
-    document.getElementById("current-amount").innerText = "$" + parseInt(currentAmountRaised);
+    let amountRaised = parseInt(currentAmountRaised);
+    let formattedAmountRaised = formatNumber(amountRaised);
+    document.getElementById("current-amount").innerText = "$" + formattedAmountRaised;
 }
 
 function setPercentRaised (currentAmountRaised, initialGoalAmount) {
@@ -29,7 +31,8 @@ function setPercentRaised (currentAmountRaised, initialGoalAmount) {
 }
 
 function setNumSponsors (numSponsors) {
-    document.getElementById("number-sponsors").innerText = numSponsors;
+    let formattedNumSponsors = formatNumber(numSponsors);
+    document.getElementById("number-sponsors").innerText = formattedNumSponsors;
 }
 
 function updateThermometerData(data) {
