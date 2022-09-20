@@ -31,7 +31,9 @@ function setPercentRaised (currentAmountRaised, initialGoalAmount) {
     const percentRaisedDecimal = currentAmountRaised / initialGoalAmount;
     const percentRaisedInt = parseInt(percentRaisedDecimal * 100);
     document.getElementById("goal-percent-complete").innerText = percentRaisedInt + "%";
-    document.getElementById("progress").style.width = percentRaisedInt + '%';
+
+    const limitedPercentRaised = percentRaisedInt > 100 ? 100 : percentRaisedInt;
+    document.getElementById("progress").style.width = limitedPercentRaised + '%';
 }
 
 function setNumSponsors (numSponsors) {
@@ -78,7 +80,7 @@ function getDonationData() {
     // let donationApiEndpoint = 'https://bqooixhppfybqw64lxkni7sjxi0jiyll.lambda-url.us-east-1.on.aws/';
     let donationApiEndpoint = 'https://api.frc.org/api/campaign-thermometer/';
     const campaignToUse = 'FYE_2022';
-    // const campaignToUse = 'CYE_2022';
+    // const campaignToUse = 'CYE_2021';
 
     return fetch(donationApiEndpoint)
       .then(raw => raw.json())
