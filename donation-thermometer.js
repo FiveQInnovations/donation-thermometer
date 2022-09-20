@@ -39,8 +39,15 @@ function setDaysRemaining(numDays) {
     document.getElementById("days-remaining").innerText = numDays;
 }
 
-function calculateDaysRemaining (endDate) {
-    return '12';
+function calculateDaysRemaining (endDateStr) {
+    const endDate = new Date(endDateStr);
+    const today = new Date();
+
+    const millisPerDay = 1000 * 60 * 60 * 24;
+    const diffInMs = endDate - today;
+    const diffInDays = diffInMs / millisPerDay;
+    console.log('days: ' + diffInDays);
+    return Math.round(diffInDays);
 }
 
 function updateThermometerData(data) {
