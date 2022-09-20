@@ -1,0 +1,9 @@
+{
+  "name": "donation-thermometer",
+  "version": "1.0.0",
+  "dependencies": {
+  },
+  "scripts": {
+    "serve": "npx http-server"
+  }
+}
