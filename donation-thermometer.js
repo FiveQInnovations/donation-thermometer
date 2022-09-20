@@ -35,6 +35,10 @@ function setNumSponsors (numSponsors) {
     document.getElementById("number-sponsors").innerText = formattedNumSponsors;
 }
 
+function setDaysRemaining(endDate) {
+    document.getElementById("days-remaining").innerText = '13';
+}
+
 function updateThermometerData(data) {
     console.log('updating thermometer with:');
     console.log(data);
@@ -47,6 +51,7 @@ function updateThermometerData(data) {
     setCurrentAmountRaised(currentAmountRaised);
     setPercentRaised(currentAmountRaised, initialGoalAmount);
     setNumSponsors(numSponsors);
+    setDaysRemaining(data.endDate);
 }
 
 function getDonationData() {
