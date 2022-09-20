@@ -47,7 +47,11 @@ function calculateDaysRemaining (endDateStr) {
     const diffInMs = endDate - today;
     const diffInDays = diffInMs / millisPerDay;
     console.log('days: ' + diffInDays);
-    return Math.round(diffInDays);
+    let rounded = Math.round(diffInDays);
+    if (rounded < 0) {
+        return 0;
+    }
+    return rounded;
 }
 
 function updateThermometerData(data) {
