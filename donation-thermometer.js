@@ -1,12 +1,3 @@
-// Upload this to AWS S3
-
-// Option 1: API call - do this one
-// Option 2: scrape parent document
-    // Need to put data into parent doc in more consistent pattern
-// Option 3: interact with function somehow
-    // Denied by browser due to security issues
-// Option 4: Client manually updates this file
-    // Possible, but not worthwhile
 
 function formatNumber (x) {
     return Number(x).toLocaleString('en-US', { minimumFractionDigits: 0 } );
@@ -77,10 +68,8 @@ function updateThermometerData(data) {
 }
 
 function getDonationData() {
-    // let donationApiEndpoint = 'https://bqooixhppfybqw64lxkni7sjxi0jiyll.lambda-url.us-east-1.on.aws/';
-    let donationApiEndpoint = 'https://api.frc.org/api/campaign-thermometer/';
+    const donationApiEndpoint = 'https://api.frc.org/api/campaign-thermometer/';
     const campaignToUse = 'CYE_2022';
-    // const campaignToUse = 'CYE_2021';
 
     return fetch(donationApiEndpoint)
       .then(raw => raw.json())
