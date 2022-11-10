@@ -79,7 +79,7 @@ function updateThermometerData(data) {
 function getDonationData() {
     // let donationApiEndpoint = 'https://bqooixhppfybqw64lxkni7sjxi0jiyll.lambda-url.us-east-1.on.aws/';
     let donationApiEndpoint = 'https://api.frc.org/api/campaign-thermometer/';
-    const campaignToUse = 'FYE_2022';
+    const campaignToUse = 'CYE_2022';
     // const campaignToUse = 'CYE_2021';
 
     return fetch(donationApiEndpoint)
