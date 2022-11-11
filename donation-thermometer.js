@@ -69,7 +69,7 @@ function updateThermometerData(data) {
 
 function getDonationData() {
     const donationApiEndpoint = 'https://api.frc.org/api/campaign-thermometer/';
-    const campaignToUse = 'CYE_2022';
+    const campaignToUse = 'NOV_2022';
 
     return fetch(donationApiEndpoint)
       .then(raw => raw.json())
