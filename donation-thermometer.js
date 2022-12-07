@@ -44,7 +44,7 @@ function calculateDaysRemaining (endDateStr) {
     const diffInMs = endDate - today;
     const diffInDays = diffInMs / millisPerDay;
     console.log('days: ' + diffInDays);
-    let rounded = Math.round(diffInDays);
+    let rounded = Math.ceil(diffInDays);
     if (rounded < 0) {
         return 0;
     }
@@ -69,7 +69,7 @@ function updateThermometerData(data) {
 
 function getDonationData() {
     const donationApiEndpoint = 'https://api.frc.org/api/campaign-thermometer/';
-    const campaignToUse = 'NOV_2022';
+    const campaignToUse = 'CYE_2022';
 
     return fetch(donationApiEndpoint)
       .then(raw => raw.json())
