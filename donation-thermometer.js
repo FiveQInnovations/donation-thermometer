@@ -62,7 +62,7 @@ function updateThermometerData(data) {
     setInitialGoalAmount(initialGoalAmount);
     setCurrentAmountRaised(currentAmountRaised);
     setPercentRaised(currentAmountRaised, initialGoalAmount);
-    setNumSponsors(numSponsors);
+    // setNumSponsors(numSponsors);
     const numDaysRemaining = calculateDaysRemaining(data.endDate);
     setDaysRemaining(numDaysRemaining);
 }
