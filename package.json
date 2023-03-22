@@ -4,6 +4,7 @@
   "dependencies": {
   },
   "scripts": {
-    "serve": "npx http-server"
+    "serve": "npx http-server",
+    "start": "npm run serve"
   }
 }
