@@ -37,6 +37,8 @@ function setDaysRemaining(numDays) {
 }
 
 function calculateDaysRemaining (endDateStr) {
+    if (!endDateStr) return 2;
+
     const endDate = new Date(endDateStr);
     const today = new Date();
 
@@ -73,7 +75,7 @@ function getDonationData() {
 
     return fetch(donationApiEndpoint)
       .then(raw => raw.json())
-      .then(json => json.find(x => x.campaign_group === campaignToUse))
+      .then(json => json.length ? json.find(x => x.campaign_group === campaignToUse) : json)
       .then(campaign => {
         return {
             initialGoalAmount: Number(campaign.campaign_goal),
